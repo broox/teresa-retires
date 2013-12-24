@@ -1,8 +1,36 @@
 <html>
     <head>
         <title>Teresa Retires</title>
+        <style>
+            body{ font-family: helvetica, arial, san-serif; background-color:#000; }
+            h1, h2 { text-align:center; }
+            h1 { font-size:60px; margin:200px 0 0; color:#FFF; }
+            h2 { font-size:50px; margin:0; color:#EEE; }
+        </style>
+        <script type="text/javascript">
+            var retirement = new Date("Feb 12, 2017").getTime(),
+                countdown, days, hours, minutes, seconds;
+
+            setInterval(function () {
+                var today = new Date().getTime(),
+                    secondsLeft = (retirement - today) / 1000;
+
+                days = parseInt(secondsLeft / 86400);
+                secondsLeft = secondsLeft % 86400;
+
+                hours = parseInt(secondsLeft / 3600);
+                secondsLeft = secondsLeft % 3600;
+
+                minutes = parseInt(secondsLeft / 60);
+                seconds = parseInt(secondsLeft % 60);
+
+                countdown = document.getElementById('retirement'),
+                countdown.innerHTML = days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, ' + seconds + '  seconds';
+            }, 1000);
+        </script>
     </head>
     <body>
-        <h1>Teresa Retires in <span id="retirement"></span></h1>
+        <h1>TERESA RETIRES IN</h1>
+        <h2 id="retirement"></h2>
     </body>
 </html>

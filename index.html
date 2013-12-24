@@ -2,9 +2,26 @@
     <head>
         <title>Teresa Retires</title>
         <style>
-            body{ font-family: helvetica, arial, san-serif; background-color:#000; }
-            h1, h2 { text-align:center; }
-            h1 { font-size:50px; margin:150px 0 0; color:#AAA; }
+            body {
+                padding:0;
+                margin:0 20px;
+                font-family: helvetica, arial, san-serif;
+                background: #000 url(background-3.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            div {
+                background-color: rgba(0,0,0,0.7);
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom:0;
+            }
+            h1, h2 { text-align:center; text-shadow: 0 0 10px #000; }
+            h1 { font-size:50px; margin:100px 0 0; color:#CCC; }
             h2 { font-size:70px; margin:0; color:#FFF; }
         </style>
         <script type="text/javascript">
@@ -45,7 +62,9 @@
         </script>
     </head>
     <body>
-        <h1>TERESA LYLA REYNOLDS RETIRES IN</h1>
-        <h2 id="retirement"></h2>
+        <div>
+            <h1>TERESA LYLA REYNOLDS RETIRES IN</h1>
+            <h2 id="retirement">...</h2>
+        </div>
     </body>
 </html>

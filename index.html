@@ -4,16 +4,22 @@
         <style>
             body{ font-family: helvetica, arial, san-serif; background-color:#000; }
             h1, h2 { text-align:center; }
-            h1 { font-size:60px; margin:200px 0 0; color:#FFF; }
-            h2 { font-size:50px; margin:0; color:#EEE; }
+            h1 { font-size:50px; margin:150px 0 0; color:#AAA; }
+            h2 { font-size:70px; margin:0; color:#FFF; }
         </style>
         <script type="text/javascript">
             var retirement = new Date("Feb 12, 2017").getTime(),
-                countdown, days, hours, minutes, seconds;
+                ticker, months, days, hours, minutes, seconds, countdown = [];
 
             setInterval(function () {
                 var today = new Date().getTime(),
                     secondsLeft = (retirement - today) / 1000;
+
+                years = parseInt(secondsLeft / 31556926)
+                secondsLeft = secondsLeft % 31556926;
+
+                months = parseInt(secondsLeft / 2629744);
+                secondsLeft = secondsLeft % 262744;
 
                 days = parseInt(secondsLeft / 86400);
                 secondsLeft = secondsLeft % 86400;
@@ -24,8 +30,17 @@
                 minutes = parseInt(secondsLeft / 60);
                 seconds = parseInt(secondsLeft % 60);
 
-                countdown = document.getElementById('retirement'),
-                countdown.innerHTML = days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, ' + seconds + '  seconds';
+                ticker = document.getElementById('retirement');
+
+                var countdown = [];
+                if(years) countdown.push(years = years + ' year' + (years == 1 ? '' : 's'));
+                if(months) countdown.push(months = months + ' month' + (months == 1 ? '' : 's'));
+                if(days) countdown.push(days = days + ' day' + (days == 1 ? '' : 's'));
+                if(hours) countdown.push(hours = hours + ' hour' + (hours == 1 ? '' : 's'));
+                if(minutes) countdown.push(minutes = minutes + ' minute' + (minutes == 1 ? '' : 's'));
+                if(seconds) countdown.push(seconds = seconds + ' second' + (seconds == 1 ? '' : 's'));
+
+                ticker.innerHTML = countdown.join(', ');
             }, 1000);
         </script>
     </head>
